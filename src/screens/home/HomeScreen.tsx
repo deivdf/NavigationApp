@@ -1,0 +1,19 @@
+import React from 'react'
+import {View } from 'react-native'
+import { globalStyles } from '../../theme/theme'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import PrimaryButton from '../../components/shared/PrimaryButoon';
+import { RootStackParams } from '../../routes/StackNavigator';
+
+
+
+export default function HomeScreen() {
+  // Hook de navegación esto nos permite navegar entre pantallas solo con el nombre quitando el "as never"
+  const navigation = useNavigation<NavigationProp<RootStackParams>>();
+  return (
+    <View style={globalStyles.container}>
+      <PrimaryButton label='Go to Products' action={() => navigation.navigate('Products')} />
+      <PrimaryButton label='Go to Settings' action={() => navigation.navigate('Settings')} />
+    </View>
+  )
+}
