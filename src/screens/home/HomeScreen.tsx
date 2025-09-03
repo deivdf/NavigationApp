@@ -1,7 +1,7 @@
-import React from 'react'
-import {View } from 'react-native'
+import { useEffect } from 'react'
+import {Pressable, Text, View } from 'react-native'
 import { globalStyles } from '../../theme/theme'
-import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { DrawerActions, NavigationProp, useNavigation } from '@react-navigation/native'
 import PrimaryButton from '../../components/shared/PrimaryButoon';
 import { RootStackParams } from '../../routes/StackNavigator';
 
@@ -10,6 +10,19 @@ import { RootStackParams } from '../../routes/StackNavigator';
 export default function HomeScreen() {
   // Hook de navegación esto nos permite navegar entre pantallas solo con el nombre quitando el "as never"
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
+  //en este apartado se hace uso de este useEffect para implementar un boton en la cabecera para que haga de menu deplegable
+    useEffect(() =>{
+      navigation.setOptions({
+        headerLeft: () => {
+          // esto suple la funcion de boton desplegable del drawer
+          <Pressable onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+            <Text>
+              Menu
+            </Text>
+          </Pressable>
+        }
+      })
+    },[])
   return (
     <View style={globalStyles.container}>
       <PrimaryButton label='Go to Products' action={() => navigation.navigate('Products')} />

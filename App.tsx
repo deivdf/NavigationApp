@@ -1,14 +1,15 @@
-
 import { NavigationContainer } from '@react-navigation/native';
+import { NavigationDrawer } from './src/routes/NavigationDrawer';
 //import { StackNavigator } from './src/routes/StackNavigator';
-import { DrawerNavigation } from './src/routes/DrawerNavigation';
+
 
 
 
 export const App = () => {
+
   return (
     <NavigationContainer>
-        <DrawerNavigation />
+        <NavigationDrawer />
     </NavigationContainer>
   );
 };
