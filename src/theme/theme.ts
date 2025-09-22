@@ -23,7 +23,7 @@ export const globalStyles = StyleSheet.create({
     // estilos para el boton primario reutilizable
     PrimaryButton: {
         backgroundColor: globalColors.primary,
-        borderRadius: 5,
+        borderRadius: 10,
         padding: 10,
         margin: 10,
         width: '100%',
